@@ -23,7 +23,7 @@ const Navbar = () => {
             <Link to="/projects">Projects</Link>
           </li>
           <li className="hover:text-blue-600 cursor-pointer">
-            <Link to="/submit">Submit Project</Link>
+            <Link to="/submit-project">Submit Project</Link>
           </li>
           <li>
             <button
