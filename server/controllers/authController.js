@@ -6,6 +6,19 @@ const generateToken = (id, role) => {
   return jwt.sign({ id, role }, process.env.JWT_SECRET, { expiresIn: "7d" });
 };
 
+export const getProfile = async (req, res) => {
+  if (!req.user) return res.status(401).json({ message: "Not authorized" });
+
+  return res.json({
+    user: {
+      id: req.user._id,
+      name: req.user.name,
+      email: req.user.email,
+      role: req.user.role,
+    },
+  });
+};
+
 // user singup
 
 export const registerUser = async (req, res) => {
@@ -126,3 +139,6 @@ export const loginAdmin = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+
+
